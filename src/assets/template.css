@@ -1,0 +1,183 @@
+/* Layout elements */
+page {
+  background: white;
+  display: block;
+  page-break-after: always;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Screen styles */
+@media screen {
+  page[size="A4"] {
+    width: 1240px;
+    height: 1753px;
+  }
+
+  page[size="multipage"] {
+    width: 1240px;
+    height: auto;
+  }
+
+  page {
+    margin: 0 auto 0.5cm auto;
+    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+    padding: 0 120px 120px 120px;
+  }
+
+  page.first {
+    padding-top: 80px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  page {
+    box-shadow: none;
+    margin: 0;
+  }
+
+  .no-break-inside {
+    page-break-inside: avoid;
+  }
+
+  @page {
+    size: 1240px 1753px;
+    margin: 0 120px 120px 120px;
+  }
+
+  @page:first {
+    margin-top: 80px;
+  }
+}
+
+.page {
+  width: 1000px;
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+li {
+  margin-left: -1.5em;
+  list-style: disc;
+}
+
+li.no-list-style {
+  margin-left: 0;
+  list-style: none;
+}
+
+.underline {
+  border-bottom: 1px solid !important;
+}
+
+.profile-picture {
+  width: 250px;
+  margin-left: 62.5px;
+}
+
+/*
+ * Element styling
+ */
+
+page {
+  position: relative;
+  display: block;
+  margin: 0 auto 0.02cm;
+  padding: 80px 108px 0 120px; /* Compensate the extra margin on the right side (has to do with scaling bug). */
+  background: white;
+  color: #232323 !important;
+  overflow: hidden;
+}
+
+/* To make it look like pages in the html preview */
+body {
+  background: rgb(204, 204, 204);
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  padding-left: 30px;
+  list-style-type: none !important;
+}
+
+/*
+* Helper styling
+*/
+
+.container-fluid {
+  position: relative;
+  min-height: 1620px;
+}
+
+/* Automatically divide items over two columns */
+.two-column-layout {
+  column-count: 2;
+  hyphens: auto;
+}
+
+/* Remove bullets on these items */
+ul.no-list-style {
+  padding-left: 0;
+}
+
+ul.no-list-style li {
+  list-style: none;
+}
+
+/* Put a line under the text over the whole width of the page or column */
+.underline {
+  border-bottom: 1px solid;
+  width: 100%;
+  display: block;
+}
+
+/*
+* Specific styling
+*/
+
+.profile-picture__wrapper {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-picture {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.profile-name {
+  margin-left: 15px;
+}
+
+.logo-top-left {
+  position: absolute;
+  top: -50px;
+  right: -10px;
+
+  width: 300px;
+  z-index: 100;
+}
+
+.interests {
+  padding: 0px 20px 0px 20px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}

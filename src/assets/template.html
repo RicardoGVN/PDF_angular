@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Preview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../assets/template.css" />
+  </head>
+
+  <body>
+    <page size="A4">
+      <div class="container-fluid">
+        <img class="logo-top-left" src="../assets/logo.png" />
+        <div class="profile mb-4">
+          <div class="profile-picture__wrapper">
+            <img
+              class="profile-picture"
+              id="rockstar-round"
+              src="{{ ProfilePictureUrl }}"
+            />
+          </div>
+          <div class="profile-name">
+            <h4 class="mb-1">{{ ProfileFirstName }}</h4>
+            <h6>{{ ProfileHeadline }}</h6>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h5 class="underline mt-3 mb-3">
+              {{ translations.WorkExperience }}
+            </h5>
+            {{#ProfesionalExperience}}
+            <div>
+              <p class="mb-1">
+                <strong>{{Role}}</strong> {{ translations.At }} {{CompanyName}},
+                {{City}} ({{Years}})
+              </p>
+              {{#Activities.length}}
+              <ul>
+                {{#Activities}}
+                <li>{{.}}</li>
+                {{/Activities}}
+              </ul>
+              {{/Activities.length}}
+            </div>
+            {{/ProfesionalExperience}}
+          </div>
+        </div>
+        {{#EducationsThreeMostRecent.length}}
+        <h5 class="underline mt-4 mb-3">{{ translations.Education }}</h5>
+        <div class="row">
+          {{#EducationsThreeMostRecent}}
+          <div class="col">
+            <p>
+              <strong>{{Institution}}</strong><br />
+              {{Name}} ({{Years}})
+            </p>
+          </div>
+          {{/EducationsThreeMostRecent}}
+        </div>
+        {{/EducationsThreeMostRecent.length}} {{#PersonalProjects.length}}
+        <h5 class="underline mt-4 mb-3">{{ translations.PersonalProjects }}</h5>
+        {{#PersonalProjects}}
+        <div class="row">
+          <div class="col">
+            <p>
+              <strong>{{Name}} ({{Period}})</strong><br />
+              {{Description}}
+            </p>
+          </div>
+        </div>
+        {{/PersonalProjects}} {{/PersonalProjects.length}}
+        <div class="row">
+          {{#ResumeTopSkills.length}}
+          <div class="col">
+            <h5 class="underline mt-4 mb-3">{{ translations.Skills }}</h5>
+            {{#ResumeTopSkills}}
+            <span class="comma-list">{{Name}}</span>
+            {{/ResumeTopSkills}}
+          </div>
+          {{/ResumeTopSkills.length}} {{#Competences.length}}
+          <div class="col">
+            <h5 class="underline mt-4 mb-3">{{ translations.Competences }}</h5>
+            {{#Competences}}
+            <span class="comma-list">{{.}}</span>
+            {{/Competences}}
+          </div>
+          {{/Competences.length}}
+        </div>
+        <h6></h6>
+        <div class="row">
+          {{#Languages.length}}
+          <div class="col">
+            <h5 class="underline mt-4 mb-3">{{ translations.Languages }}</h5>
+            <ul class="no-list-style">
+              {{#Languages}}
+              <li>{{.}}</li>
+              {{/Languages}}
+            </ul>
+          </div>
+          {{/Languages.length}} {{#Certificates.length}}
+          <div class="col">
+            <h5 class="underline mt-4 mb-3">{{ translations.Certificates }}</h5>
+            <ul class="no-list-style">
+              {{#Certificates}}
+              <li>{{Name}} ({{Date}})</li>
+              {{/Certificates}}
+            </ul>
+          </div>
+          {{/Certificates.length}} {{#Interests.length}}
+          <div class="col">
+            <h5 class="underline mt-4 mb-3">{{ translations.Interests }}</h5>
+            <ul class="no-list-style two-column-layout interests">
+              {{#Interests}}
+              <li>{{.}}</li>
+              {{/Interests}}
+            </ul>
+          </div>
+          {{/Interests.length}}
+        </div>
+      </div>
+    </page>
+  </body>
+</html>

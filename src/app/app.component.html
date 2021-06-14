@@ -1,0 +1,11 @@
+<button (click)="onDownloadClicked()">Download</button>
+<pdf-viewer
+  [src]="pdfSrc"
+  [render-text]="true"
+  [show-borders]="true"
+  [original-size]="false"
+  [autoresize]="true"
+  [show-all]="true"
+  [(page)]="pdfPage"
+  style="display: block;max-width:700px;"
+></pdf-viewer>
